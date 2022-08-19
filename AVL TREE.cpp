@@ -4,18 +4,20 @@ class node
 {
 
 private:
+	node* left;
+	node* right;
+	node* root = nullptr;
+	int data;
 	void insertHelper(node* root, const int& val)
 	{
 		if (root == nullptr)
 		{
 			root = new node();
 			root->data = val;
-			std::cout << root->data;
 		}
 		else if (root->data > val)
 		{
 			insertHelper(root->left, val);
-			std::cout << root->data;
 		}
 		else
 		{
@@ -23,13 +25,9 @@ private:
 		}
 	}
 public:
-	int data;
-	node* left;
-	node* right;
-	node* root = nullptr;
+	
 	node()
 	{
-		//data = val;
 		left = nullptr;
 		right = nullptr;
 	}
@@ -38,6 +36,7 @@ public:
 	{
 		insertHelper(root,val);
 	}
+	
 
 };
 
